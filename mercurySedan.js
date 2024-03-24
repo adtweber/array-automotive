@@ -16,7 +16,24 @@ class Car extends VehicleModule.Vehicle {
         this.scheduledService = false;
     }
 
-    loadPassenger(num) {
+    checkService() {
+        if (this.mileage > 30000)
+            this.scheduleService = true
+            return this.scheduleService;
+    }
+
+    start() {
+        if (this.fuel > 0) {
+            console.log("engine has started.");
+            return this.started = true
+        } else {
+            console.log("no fuel");
+            return this.started = false;
+        }
+        }
+    }
+
+    loadPassenger(num); {
         if (this.passenger < this.maxPassengers) {
             if ((num + this.passenger) <= this.maxPassengers) {
                 this.passenger = num;
@@ -30,12 +47,14 @@ class Car extends VehicleModule.Vehicle {
         }
     }
 
-    checkService() {
-        if (this.mileage > 30000)
-            this.scheduleService = true
-            return this.scheduleService;
-    }
-}
+    let myCar = new Car('mercury', 'rad_sedan', '2002', 'white', 50000)
+
+    myCar.start()
+    myCar.loadPassenger(5)
+    myCar.stop()
+    myCar.checkService()
+    
+    console.log(myCar)
 //After you write the derived Car class, you should test it out.
 
 //Note: You can code your derived Car class here or make a file named index.js and do it there.
